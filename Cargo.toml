@@ -1,0 +1,35 @@
+[package]
+name = "alterware-launcher"
+version = "0.8.4"
+edition = "2021"
+build = "res/build.rs"
+
+[profile.release]
+opt-level = "s"
+panic = "abort"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+
+[target.'cfg(unix)'.dependencies]
+openssl = { version = "0.10.66", default-features = false, features = ["vendored"] }
+
+[target.'cfg(windows)'.dependencies]
+steamlocate = "=2.0.0-beta.2"
+mslnk = "0.1.8"
+self-replace = "1.5.0"
+runas = "1.2.0"
+
+[build-dependencies]
+winresource = "0.1.17"
+static_vcruntime = "2.0"
+
+[dev-dependencies]
+strip-ansi-escapes = "0.2.0"
+serial_test = "3.1.1"
+
+[package.metadata.winresource]
+OriginalFilename = "alterware-launcher.exe"
+FileDescription = "AlterWare Launcher"
+ProductName = "github.com/mxve/alterware-launcher"
