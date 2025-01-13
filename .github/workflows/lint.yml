@@ -24,7 +24,7 @@ jobs:
           toolchain: stable
 
       - name: Run cargo check
-        uses: clechasseur/rs-cargo@v2
+        uses: clechasseur/rs-cargo@v3
         with:
           command: check
 
@@ -49,7 +49,7 @@ jobs:
           toolchain: stable
 
       - name: Run cargo test
-        uses: clechasseur/rs-cargo@v2
+        uses: clechasseur/rs-cargo@v3
         with:
           command: test
 
@@ -75,13 +75,13 @@ jobs:
           components: rustfmt, clippy
 
       - name: Run cargo fmt
-        uses: clechasseur/rs-cargo@v2
+        uses: clechasseur/rs-cargo@v3
         with:
           command: fmt
           args: --all -- --check
 
       - name: Run cargo clippy
-        uses: clechasseur/rs-cargo@v2
+        uses: clechasseur/rs-cargo@v3
         with:
           command: clippy
           args: -- -D warnings
